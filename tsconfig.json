@@ -37,7 +37,11 @@
       "es2019"
     ],
     "locale": "zh-CN",
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "types": [
+      "miniprogram-api-typings",
+      "./typings"
+    ]
   },
   "include": [
     "app",

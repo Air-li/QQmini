@@ -10,7 +10,7 @@ jobs:
     - stage: linter-test
       name: "Use eslint to test your code"
       script:
-        - yarn run lint:checl
+        - yarn run lint:check
 
 stages:
   - name: linter-test
