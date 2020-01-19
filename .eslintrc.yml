@@ -178,6 +178,12 @@ rules:
 
 overrides:
   - files:
+      - "*.js"
+
+    env:
+      node: true
+
+  - files:
       - "*.ts"
 
     extends:
