@@ -1,49 +1,49 @@
-let openid;
-let user;
-let orientation;
-
 Page({
+  privateData: {
+    openid: '',
+    user: ''
+  },
   data: {
     inputValue: '',
-    remarks: [],
-    orientation: ''
+    remarks: [] as any[],
+    orientation: '',
+    isLogin: false
+  },
+  onLoad(event) {
+    this.setData({ orientation: event.orientation });
+    this.refreshInfo();
   },
   refreshInfo() {
     wx.request({
       url: 'https://lin.innenu.com/query-remark.php',
-      data: { orientation },
+      data: { orientation: this.data.orientation },
       success: res => {
-        console.log(res.data);
-        this.setData({ remarks: res.data });
+        const { data } = res as WX.RequestResult<any[]>;
+
+        console.log(data);
+        this.setData({ remarks: data });
       }
     });
   },
-  onLoad(event) {
-    setTimeout(() => {
-      ({ openid } = getApp().globalData);
-    }, 500);
 
-    ({ orientation } = event);
-    this.setData({ orientation });
-    this.refreshInfo();
-  },
-  valueChange(event) {
+  valueChange(event: WXEvent.Input) {
     this.setData({ inputValue: event.detail.value });
   },
 
-  login(event) {
-    user = event.detail.userInfo.nickName;
+  login(event: WXEvent.Touch) {
+    this.privateData.user = event.detail.userInfo.nickName;
     this.setData({ isLogin: true });
   },
 
-  faBu() {
+  /** 提交评论 */
+  submit() {
     wx.request({
       url: 'https://lin.innenu.com/addRemark.php',
       data: {
-        orientation,
+        orientation: this.data.orientation,
         content: this.data.inputValue,
-        user,
-        openid
+        user: this.privateData.user,
+        openid: this.privateData.openid
       },
       success: res => {
         console.log(res.data);

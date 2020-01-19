@@ -1,6 +1,6 @@
 Page({
   data: {
-    List: [],
+    list: [] as any,
     load: true,
     restaurant: ''
   },
@@ -19,8 +19,8 @@ Page({
       data: { restaurant: event.restaurant },
       success: res => {
         console.log(res);
-        const List = res.data;
-        this.setData({ List });
+        const list = res.data;
+        this.setData({ list });
       }
     });
   },

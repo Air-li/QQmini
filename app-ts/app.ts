@@ -76,7 +76,7 @@ App({
             method: 'POST',
             data: { code: res.code },
             success: res1 => {
-              const { data } = res1 as WX.RequestObjectResult<QQOpenIDResult>;
+              const { data } = res1 as WX.RequestResult<QQOpenIDResult>;
 
               this.globalData.openid = data.openid;
 
@@ -96,7 +96,7 @@ App({
     wx.request({
       url: 'https://lin.innenu.com/getFoodList.php',
       success: res => {
-        const { data } = res as WX.RequestObjectResult<FoodList[]>;
+        const { data } = res as WX.RequestResult<FoodList[]>;
 
         this.globalData.foodList = data;
       }

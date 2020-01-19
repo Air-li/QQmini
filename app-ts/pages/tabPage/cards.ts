@@ -1,28 +1,56 @@
 const { globalData } = getApp();
 
+interface OldCardInfo {
+  /** 背景颜色 */
+  bg: string;
+  description: string;
+  locate: string;
+  name: string;
+  restaurant: string;
+  src: string;
+}
+
+interface CardInfo {
+  /** 食物名称 */
+  name: string;
+  /** 食物详情 */
+  description: string;
+  /** 大致地点 */
+  locate: string;
+  /** 具体档口 */
+
+  shop: string;
+  /** 图片地址 */
+  src: string;
+  /** 背景颜色 */
+  bgColor: string;
+  /** 动画 Class */
+  animation?: string;
+}
+
 Page({
   data: {
     /** 卡片列表 */
-    cardList: []
+    cardList: [] as CardInfo[]
   },
 
   privateData: {
     badge: 1,
-    myFavor: [],
-    extensionCards: []
+    myFavor: [] as CardInfo[],
+    extensionCards: [] as CardInfo[]
   },
 
   /** 获取卡片列表 */
   onLoad() {
     wx.showLoading({ title: 'loading' });
     wx.request({
-      url: 'https://lin.innenu.com/query-card-fixed.php',
+      url: 'https://lin.innenu.com/getCard.php',
       success: res => {
-        const cardList = [res.data[0], res.data[1], res.data[2]];
+        const { data: cardList } = res as WX.RequestResult<CardInfo[]>;
 
-        this.privateData.extensionCards = [res.data[3], res.data[4]];
+        this.privateData.extensionCards = cardList.slice(3);
 
-        this.setData({ cardList });
+        this.setData({ cardList: cardList.slice(0, 3) });
         wx.hideLoading();
       }
     });
@@ -45,13 +73,13 @@ Page({
   cardAnimation(animationClass: string) {
     const { cardList } = this.data;
 
-    cardList[0].class = animationClass;
+    cardList[0].animation = animationClass;
 
     this.setData({ cardList }, () => {
       setTimeout(() => {
-        cardList[0].class = '';
-        const firstEle = cardList.shift();
-        const firstExtensionEle = this.privateData.extensionCards.shift();
+        cardList[0].animation = '';
+        const firstEle = cardList.shift() as CardInfo;
+        const firstExtensionEle = this.privateData.extensionCards.shift() as CardInfo;
 
         this.privateData.extensionCards.push(firstEle);
         cardList.push(firstExtensionEle);
@@ -71,18 +99,11 @@ Page({
   addToFavor() {
     let isDuplicated = false;
     const { cardList } = this.data;
-    const {
-      objId,
-      category = 'card',
-      name,
-      locate,
-      restaurant,
-      src
-    } = cardList[0];
+    const { name, locate, shop, src } = cardList[0];
     const { myFavor } = this.privateData;
 
     for (let i = 0; i < myFavor.length; i++)
-      if (category === myFavor[i].category && objId === myFavor[i].objId) {
+      if (name === myFavor[i].name && shop === myFavor[i].shop) {
         isDuplicated = true;
         wx.showToast({
           title: '它已经在收藏夹里啦',
@@ -92,14 +113,7 @@ Page({
       }
 
     if (isDuplicated === false) {
-      myFavor.push({
-        objId,
-        category,
-        name,
-        locate,
-        restaurant,
-        src
-      });
+      myFavor.push(cardList[0]);
 
       console.log(globalData.openid);
 
@@ -111,14 +125,13 @@ Page({
       this.privateData.badge += 1;
 
       wx.request({
-        url: 'https://lin.innenu.com/addToFavorFixed.php',
+        url: 'https://lin.innenu.com/addToFavorList.php',
         data: {
           openid: globalData.openid,
-          objId,
           category,
           name,
           locate,
-          restaurant,
+          shop,
           src
         },
         success: res => {

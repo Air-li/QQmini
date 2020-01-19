@@ -6,6 +6,6 @@
   </view>
   <view style="width:100vh;height:50rpx"></view>
   <input id="input" value="{{inputValue}}" bindinput="valueChange" placeholder="来说点什么吧！" />
-  <button wx:if="{{isLogin}}" class='fabu-input' bindtap='faBu'>发布</button>
+  <button wx:if="{{isLogin}}" class='fabu-input' bindtap='c'>发布</button>
   <button wx:else class='fabu-input' open-type="getUserInfo" bindgetuserinfo="login">免密授权登录</button>
 </view>

@@ -1,9 +1,16 @@
 // FIXME: What's it?
 let recentValue = 0;
 // FIXME: What's it?
-let value = null;
+let value = 0;
 // FIXME: What's it?
 let x = 3;
+
+interface DiceOption {
+  /** 是否展示 */
+  show: boolean;
+  /** TODO: */
+  mode?: boolean;
+}
 
 Page({
   data: {
@@ -55,8 +62,8 @@ Page({
     area: ['东北风味', '四川风味', '北方风味', '南方风味', '特色菜'],
 
     showModel: false,
-    sale1: [] as string[],
-    sale2: [] as string[],
+    sale1: [] as any[],
+    sale2: [] as any[],
     x,
     dices: [
       { show: false },
@@ -65,7 +72,7 @@ Page({
       { show: false },
       { show: false },
       { show: false }
-    ],
+    ] as DiceOption[],
     showTip: true,
     value: 0,
     url: '/icon/dice0.png'

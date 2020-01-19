@@ -2,9 +2,14 @@
  * @Author: Mr.Hope
  * @Date: 2019-07-23 18:34:29
  * @LastEditors  : Mr.Hope
- * @LastEditTime : 2020-01-18 23:11:16
+ * @LastEditTime : 2020-01-19 10:13:23
  * @Description: 列表组件
  */
+
+interface Detail {
+  id: number;
+  content: Record<string, any>;
+}
 
 Component({
   properties: {
@@ -112,7 +117,7 @@ Component({
     },
 
     /** 获得选择器位置与内容 */
-    getDetail(res): any {
+    getDetail(res): Detail {
       const id = res.currentTarget.id || res.currentTarget.dataset.id;
 
       return { id, content: this.data.config.content[id] };
@@ -126,7 +131,7 @@ Component({
      */
     change(detail): void {
       if (detail) {
-        const detail2 = {};
+        const detail2: Record<string, any> = {};
 
         Object.keys(detail).forEach(element => {
           detail2[`config.${element}`] = detail[element];
