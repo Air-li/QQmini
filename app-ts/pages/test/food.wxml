@@ -1,0 +1,17 @@
+<view class="blankslate"></view>
+<navigator url="cards">
+  <button>cards</button>
+</navigator>
+<view class="btnGroup">
+  <view class="btn">
+    <button bindtap="categoryToggle" plain>catogory</button>
+  </view>
+  <view class="btn">
+    <button plain>others</button>
+  </view>
+</view>
+<view wx:if="{{category}}" class="category">
+  <view class="item">...</view>
+  <view class="item">...</view>
+  <view class="item">...</view>
+</view>

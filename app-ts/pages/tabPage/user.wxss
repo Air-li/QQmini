@@ -1,0 +1,160 @@
+/* ---设置胶囊--- */
+
+#setting {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10rpx 0;
+  width: 180rpx;
+  vertical-align: center;
+  text-align: center;
+  position: absolute;
+  border-radius: 50rpx;
+  top: 100rpx;
+  left: 30rpx;
+}
+
+/* --- --- */
+
+.textBox {
+  left: 45rpx;
+  position: absolute;
+  top: 190rpx;
+  text-align: center;
+}
+
+#name {
+  font-size: 40rpx;
+}
+
+/* ---斜线(三角形和矩形组成，下面绘制出了一个三角形）--- */
+
+#slash {
+  /* border-top: 50px solid rgba(243,59,34,.5); */
+  border-top: 50px solid rgb(253, 219, 219);
+  border-right: 750rpx solid transparent;
+  width: 0;
+  height: 0;
+}
+
+/* 矩形 */
+
+#top {
+  background: rgb(253, 219, 219);
+  /* background: rgba(243,59,34,.5); */
+  height: 250rpx;
+}
+
+/* --- --- */
+
+#avator {
+  position: absolute;
+  top: 140rpx;
+  left: 500rpx;
+}
+
+#avator image {
+  border-radius: 50%;
+  width: 200rpx;
+}
+
+/* ---波纹动画--- */
+
+.wave {
+  position: absolute;
+  top: 130rpx;
+  left: 490rpx;
+  display: inline-block;
+  background: white;
+  border-radius: 50%;
+  width: 220rpx;
+  height: 220rpx;
+  opacity: 0.6;
+}
+
+.w1 {
+  animation: wave1 9s infinite;
+}
+
+.w2 {
+  animation: wave1 9s infinite;
+  animation-delay: 3s;
+}
+
+.w3 {
+  animation: wave1 9s infinite;
+  animation-delay: 6s;
+}
+
+@keyframes wave1 {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.middleBar {
+  display: flex;
+  margin-top: 30rpx;
+  justify-content: space-evenly;
+}
+
+.middleBar .item {
+  text-align: center;
+}
+
+.middleBar .icon {
+  font-size: 60rpx;
+}
+
+/* 纵向菜单 */
+
+/* .menu {
+  margin: 50rpx;
+}
+
+.menu .item {
+  padding: 30rpx 0;
+  margin-top: 15rpx;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.menu .bigMarginTop {
+  margin-top: 60rpx;
+} */
+
+/* 利用 position 的特殊布局 */
+
+/* #rotate {
+  position: absolute;
+  left: 600rpx;
+  width: 30rpx;
+  transform: rotate(90deg);
+} */
+/* 
+.relative {
+  position: relative;
+} */
+
+/*  */
+
+/* button::after {
+  opacity: 0;
+}
+
+#GM {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  text-align: center;
+  font-size: initial;
+}
+
+.icon {
+  width: 50rpx;
+  height: 50rpx;
+  display: inline-block;
+  vertical-align: sub;
+} */

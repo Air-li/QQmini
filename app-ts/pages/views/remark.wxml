@@ -1,0 +1,11 @@
+<view style="width:100vh;height:200rpx"></view>
+<view class="container">
+  <text>@{{orientation}}</text>
+  <view class="items" wx:for="{{remarks}}" wx:key="index">
+    {{item.date}}|{{item.user}}:{{item.content}}
+  </view>
+  <view style="width:100vh;height:50rpx"></view>
+  <input id="input" value="{{inputValue}}" bindinput="valueChange" placeholder="来说点什么吧！" />
+  <button wx:if="{{isLogin}}" class='fabu-input' bindtap='faBu'>发布</button>
+  <button wx:else class='fabu-input' open-type="getUserInfo" bindgetuserinfo="login">免密授权登录</button>
+</view>

@@ -12,5 +12,12 @@ jobs:
       script:
         - yarn run lint:check
 
+    # 测试 TS 构建
+    - stage: ts-test
+      name: "Run tsc to test TS compile"
+      script:
+        - yarn run tsc
+
 stages:
   - name: linter-test
+  - name: ts-test

@@ -1,0 +1,111 @@
+.bg {
+  background-color: #fdb99a;
+}
+
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  margin: 0;
+  border: none;
+  height: 55px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #fdb99a;
+}
+
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 55rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: #114f9e;
+  right: 0rpx;
+  bottom: 30rpx;
+  margin: auto;
+}
+
+.VerticalBox {
+  display: flex;
+}
+
+view:first-child {
+  padding-top: 0;
+}
+
+.VerticalMain {
+  background-color: #fdb99a;
+}
+
+.cu-custom .cu-bar {
+  min-height: 0px;
+  padding-right: 220rpx;
+  box-shadow: 0rpx 0rpx 0rpx;
+}
+
+.image {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  margin-top: 35px;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  border: hsla(0, 0%, 0%, 0.342) solid;
+  border-radius: 15px;
+}
+
+.sou {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  margin-left: 315px;
+  margin-top: 0px;
+}
+
+.text-color {
+  color: #114f9e;
+}
+
+#restaurantPanel {
+  width: 600rpx;
+  height: 300rpx;
+  position: absolute;
+  top: 75rpx;
+  left: 75rpx;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  z-index: 10;
+}
+
+#restaurantPanel .title {
+  text-align: center;
+  font-weight: bold;
+}
+
+#restaurantPanel .locate {
+  text-align: center;
+}
+
+#restaurantPanel .seeReviews {
+  color: skyblue;
+  text-align: center
+}
+
+#restaurantPanel .des {
+  margin: 0 20rpx;
+  text-align: justify;
+  text-indent: 2em;
+}
+
+#topPanel {
+  height: 220px;
+  overflow: hidden
+}

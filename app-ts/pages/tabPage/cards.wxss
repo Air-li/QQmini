@@ -1,0 +1,153 @@
+.portfolio {
+  display: flex;
+  justify-content: center;
+}
+
+.foodImg {
+  width: 100%;
+  border-radius: 20rpx;
+}
+
+.portfolio {
+  color: rgb(11, 168, 255);
+  margin-bottom: 40rpx;
+}
+
+/* .portfolio image {
+  width: 100rpx;
+  margin-top: 50rpx;
+} */
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-group {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  margin-top: 120rpx;
+}
+
+.btn-group .btn {
+  width: 150rpx;
+  height: 250rpx;
+}
+
+.cards {
+  perspective-origin: 50% -50%;
+  width: 700rpx;
+  /*  */
+  height: 850rpx;
+  /*  */
+  transform-style: preserve-3d;
+  position: relative;
+  perspective: 1000rpx;
+}
+
+.cards .card {
+  position: absolute;
+  /* top: 500rpx; */
+  left: 0;
+  width: 700rpx;
+  height: 470px;
+  border: 2rpx solid black;
+  border-radius: 20rpx;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.card:nth-child(1) {
+  transform: translate3d(0rpx, 0rpx, 0rpx);
+}
+
+.card:nth-child(2) {
+  transform: translate3d(0rpx, 0rpx, -50rpx);
+}
+
+.card:nth-child(3) {
+  transform: translate3d(0rpx, 0rpx, -100rpx);
+}
+
+.shrink {
+  animation: shrink 0.6s;
+}
+
+.destroy {
+  animation: destroy 0.6s;
+}
+
+@keyframes destroy {
+  0% {
+    transform: scale3D(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3D(0.2, 0.2, 1);
+  }
+
+  100% {
+    transform: scale3D(0.2, 0.2, 1);
+    left: 600rpx;
+  }
+}
+
+@keyframes shrink {
+  0% {
+    transform: scale3D(1, 1, 1);
+    top: -200rpx;
+  }
+
+  50% {
+    transform: scale3D(1.2, 1.2, 1);
+    top: -200rpx;
+  }
+
+  100% {
+    top: 1200rpx;
+    left: 300rpx;
+    transform: scale3D(0.2, 0.2, 1);
+  }
+}
+
+.cardText {
+  display: flex;
+}
+
+.left {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 10rpx;
+  border-right: 3rpx dashed grey;
+  width: 25%;
+  flex-wrap: wrap;
+}
+
+.right {
+  padding: 0 10rpx;
+  width: 75%;
+  text-align: justify;
+}
+
+.left .locate {
+  width: 14px;
+  font-size: 12px;
+}
+
+.left .restaurant {
+  width: 14px;
+  font-size: 12px;
+}
+
+.left .name {
+  width: 16px;
+  font-weight: bold;
+}
+
+.left .toReview {
+  color: rgb(11, 168, 255);
+  width: 100%;
+  text-align: center;
+}

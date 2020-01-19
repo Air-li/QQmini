@@ -1,0 +1,81 @@
+<view style="height:100rpx;width:750rpx" />
+<navigator url="/pages/views/search">
+  <view class="placeholder">
+    <view class="box">
+      <image src="/icon/search.png" id="searchImg" />
+      <text>今儿个吃啥？</text>
+    </view>
+  </view>
+</navigator>
+<view class="flex">
+  <view wx:for="{{kind1}}" wx:key="type" class="food" style="background-color:{{item.iconColor}}">
+    <navigator url="/pages/views/detail?character={{item.character}}" class="food1">
+      <image src="/pages/images/{{item.icon}}.png" class="icon"></image>
+      <view class="text" style="font-size: 11px;color: rgba(0,0,0);">{{item.type}}</view>
+    </navigator>
+  </view>
+</view>
+<view class="flex">
+  <view wx:for="{{kind2}}" wx:key="type" class="food" style="background-color:{{item.iconColor}}">
+    <navigator url="/pages/views/detail?character={{item.type}}" class="food1">
+      <image src="/pages/images/{{item.icon}}.png" class="icon"></image>
+      <view class="text" style="font-size: 11px;color: rgba(0,0,0);">{{item.type}}</view>
+    </navigator>
+  </view>
+</view>
+<view class="random">
+  <view id="model" wx:if="{{showModel}}" catch:tap="showModelOff">
+    <view class="item" wx:for="{{sale1}}" wx:key="index" wx:if="{{item.myclass}}">
+      <image class="modelImg" mode="widthFix" src="{{item.src}}"></image>
+      <view>{{item.food}}</view>
+      <view>{{item.restaurant}}</view>
+      <view>￥{{item.price}}</view>
+    </view>
+    <view class="item" wx:for="{{sale2}}" wx:key="index" wx:if="{{item.myclass}}">
+      <image class="modelImg" mode="widthFix" src="{{item.src}}"></image>
+      <view>{{item.food}}</view>
+      <view>{{item.restaurant}}</view>
+      <view>￥{{item.price}}</view>
+    </view>
+  </view>
+  <view id="choiceArea">
+    <view style="position:relative;left:15rpx;top:60rpx;text-align:center">选择困难症看这！</view>
+    <view bindtap="startDice" id="dice">
+      <view id="tip">
+        <view class="tipbox" hidden="{{!showTip}}">
+          <image src="{{url}}"></image>
+        </view>
+      </view>
+      <view class="dice" wx:for="{{dices}}" wx:key="index" hidden="{{!item.show}}">
+        <image src="/icon/dice{{index + 1}}.gif"></image>
+      </view>
+      <view id="points" wx:if="{{x > -1}}">你摇到了{{value}}点</view>
+      <view id="points" wx:if="{{x <= -1}}">下次再来吧！</view>
+    </view>
+  </view>
+  <view class="right">
+    <view class="foodlist basicSet">
+      <view wx:for="{{sale1}}" class="item {{item.myclass}}" wx:key="food">{{item.food}}</view>
+    </view>
+    <view class="foodlist tastySet">
+      <view wx:for="{{sale2}}" class="item {{item.myclass}}" wx:key="food">{{item.food}}</view>
+    </view>
+  </view>
+</view>
+<!-- 标签 -->
+<view class="tag">
+  <scroll-view scroll-x>
+    <view class="tasteTagCtn">
+      <navigator wx:for="{{taste}}" wx:key="*this" url="/pages/views/detail?character={{item}}" class="tasteTag" hover-class="hover2">
+        {{item}}
+      </navigator>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-x>
+    <view class="areaTagCtn">
+      <navigator wx:for="{{area}}" wx:key="*this" url="/pages/views/detail?character={{item}}" class="areaTag" hover-class="hover3">
+        {{item}}
+      </navigator>
+    </view>
+  </scroll-view>
+</view>

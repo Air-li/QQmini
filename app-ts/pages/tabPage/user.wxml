@@ -1,0 +1,71 @@
+<!-- 顶部楔形 -->
+<view id="top">
+  <!-- <view id="setting">口 设置</view> -->
+  <view class="textBox">
+    <view wx:if="{{isLogin}}">
+      <view id="name">{{nickName}},</view>
+      <view id="desc">{{tips}}</view>
+    </view>
+    <view wx:else id="name">
+      <button class='fabu-input' open-type="getUserInfo" bind:getuserinfo="login">点我登录</button>
+    </view>
+  </view>
+</view>
+<view id="slash" />
+<!-- 顶部楔形 over -->
+<!-- 波浪效果 -->
+<view class="waves">
+  <view class="wave w1" />
+  <view class="wave w2" />
+  <view class="wave w3" />
+</view>
+<!-- 波浪效果 over -->
+<view id="avator">
+  <image mode="widthFix" src="{{avatarUrl}}" />
+</view>
+<!-- 横排菜单(flex布局) -->
+<view class="middleBar">
+  <view style="width:100vw;height:70rpx" />
+  <!-- <view class="item">
+    <view class="icon">口</view>
+    <view>菜单内容</view>
+  </view>
+
+  <view class="item">
+    <view class="icon">口</view>
+    <view>菜单内容</view>
+  </view>
+  <view class="item">
+    <view class="icon">口</view>
+    <view>菜单内容</view>
+  </view> -->
+</view>
+<!-- 横排菜单(flex布局) over -->
+<!-- <view class="menu">
+  <view class="relative">
+    <navigator url="/pages/views/notice">
+      <view class="item">
+        <view id="rotate">^</view>
+        <view>
+          <image class="icon" mode="widthFix" src="/pages/images/notices.svg" />
+          通知消息
+        </view>
+      </view>
+    </navigator>
+    <view class="item" bindtap="removeBadge">
+      <view id="rotate">^</view>
+      <view>
+        <image class="icon" mode="widthFix" src="/pages/images/myfavor.svg" />
+        卡片收藏
+      </view>
+    </view>
+    <view class="item bigMarginTop">
+      <button id="GM" bindtap="handleContact">
+        <image class="icon" mode="widthFix" src="/pages/images/GM.svg" />
+        复制客服QQ号
+      </button>
+    </view>
+  </view>
+</view> -->
+<ex-list config="{{list}}" bind:change="list" />
+<foot />

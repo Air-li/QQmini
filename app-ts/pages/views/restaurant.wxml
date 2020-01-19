@@ -1,0 +1,52 @@
+<view class="bg">
+  <view id="restaurantPanel">
+    <view class="title">{{restaurant}}</view>
+    <view class="locate">{{List[0].content[0].locate}}</view>
+    <view class="des">{{List[0]["content"][0].des}}</view>
+    <navigator url="../views/remark?orientation={{restaurant}}">
+      <view class="seeReviews">查看评论→</view>
+    </navigator>
+  </view>
+  <view id="topPanel">
+    <image mode="widthFix" style="margin-bottom:10rpx;width:100vw" src="{{List[0].content[0].img}}"></image>
+  </view>
+  <view class="VerticalBox">
+    <!-- 侧边栏 -->
+    <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}">
+      <view class="cu-item {{index === TabCur? 'text-color cur': ''}}" wx:for="{{List}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+        {{item.name}}
+      </view>
+    </scroll-view>
+    <!-- 菜单项 -->
+    <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - 220px)" scroll-into-view="main-{{MainCur}}" bindscroll="verticalMain">
+      <view class="padding-top padding-lr" wx:for="{{List}}" wx:key id="main-{{index}}">
+        <view class='cu-bar solid-bottom bg-white'>
+          <view class='action'>
+            <text class='cuIcon-title text-color' />
+            {{item.name}}
+          </view>
+        </view>
+        <view class="cu-list menu-avatar">
+          <view class="cu-item" wx:for="{{item.content}}" wx:for-item="List">
+            <!-- <view class="cu-avatar {{List.round?'round':''}} lg" style="background-image:url({{List.img}});" /> -->
+            <image class="cu-avatar {{List.round?'round':''}} lg" src="{{List.src}}" />
+            <view class="content">
+              <view wx:if="{{List.badge}}" class=" ">
+                <text class="text-cut">{{List.food}}</text>
+                <view class="cu-tag round bg-{{List.badgeColor}} sm">{{List.badge}}</view>
+              </view>
+              <view wx:else class=" ">{{List.food}}</view>
+              <view class="  text-sm flex">
+                <text class="text-cut">{{List.description}}</text>
+              </view>
+            </view>
+            <view class="action">
+              <view class="">￥{{List.price}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<view id="remark"></view>

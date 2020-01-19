@@ -1,5 +1,7 @@
 node_modules/
 doc/
-app-ts/
+
+app-ts/**/*.js
+app-ts/**/*.js.map
 
 yarn.lock

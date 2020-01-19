@@ -1,0 +1,26 @@
+<view style="height:200rpx;width:750rpx" />
+<!-- wx:if="{{meal.tag.includes(character)}}" -->
+<view class="list" wx:for="{{foodlist}}" wx:for-item="meal" wx:key="index" wx:if="{{meal.tag[0]==character||meal.tag[1]==(character)||meal.tag[2]==character}}" style="background:{{meal.restaurant=='基本餐'?'linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)':'linear-gradient(60deg, #abecd6 0%, #fbed96 100%);'}}">
+  <view class="imgCtn">
+    <image src="{{meal.src}}" />
+  </view>
+  <view class="detail">
+    <view class="title">
+      <view class="name">{{meal.food}}</view>
+      <!-- 点击跳转餐厅详情 -->
+      <navigator url="restaurant?restaurant={{meal.restaurant}}">
+        <view class="position">({{meal.restaurant}})</view>
+      </navigator>
+    </view>
+    <view class="tagCtn">
+      <view class="tag" wx:for="{{meal.tag}}" wx:key="index">{{item}}</view>
+    </view>
+    <view class="iconbar time">
+      <image class="timeIcon" src="/pages/images/time.svg" />
+      {{meal.description}}
+    </view>
+    <view class="price">
+      <text class="money">￥</text>{{meal.price}}
+    </view>
+  </view>
+</view>

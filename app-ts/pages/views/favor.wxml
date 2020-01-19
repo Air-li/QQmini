@@ -1,0 +1,13 @@
+<view style="height:200rpx;width:100%" />
+<view wx:if="{{!myFavor[0]}}">暂无</view>
+<view style="width:100%;display:flex;justify-content:space-around;align-items:center;border-bottom:2rpx solid lightgrey" wx:for="{{myFavor}}">
+  <view>
+    <image mode="widthFix" style="width:300rpx" src="{{item.src}}" />
+  </view>
+  <view>
+    <view>{{item.name}}</view>
+    <view>{{item.restaurant}}</view>
+    <view>{{item.locate}}</view>
+    <view>{{item.date}}</view>
+  </view>
+</view>

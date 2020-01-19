@@ -1,0 +1,33 @@
+<!-- 列表头部文字 -->
+<view wx:if="{{config.head!==false}}" class="commonhead">{{config.head}}</view>
+<!-- 列表主体 -->
+<view class="Lctn">
+  <!-- 列表每一项 -->
+  <block wx:for="{{config.content}}" wx:for-item="List" wx:key="text">
+    <!-- 判断是否隐藏列表这一项 -->
+    <block wx:if="{{!List.hidden}}">
+      <!-- 导航链接 -->
+      <view wx:if="{{List.url}}" id="{{index}}" class="listCtn" hover-class="buttonHover" hover-stay-time="100" catch:tap="navigate">
+        <view class="list-Container">
+          <image wx:if="{{List.icon}}" class="listIcon" src="{{List.icon}}" />
+          <view class="LinkText">{{List.text}}</view>
+          <view class="linkDesciption access">{{List.desc}}</view>
+        </view>
+      </view>
+      <!-- 普通文字段落 -->
+      <view wx:else class="listCtn">
+        <view class="list-Container">
+          <image wx:if="{{List.icon}}" class="listIcon" src="{{List.icon}}" />
+          <view class="LinkText">
+            <text selectable="true" space="ensp" decode="true">{{List.text}}</text>
+          </view>
+          <view class="linkDesciption">{{List.desc}}</view>
+        </view>
+      </view>
+      <!-- 分割线 -->
+      <view class="{{List.icon? 'listIcon ' :''}}link-divline" />
+    </block>
+  </block>
+</view>
+<!-- 列表尾部文字 -->
+<view wx:if="{{config.foot}}" class="commonfoot">{{config.foot}}</view>

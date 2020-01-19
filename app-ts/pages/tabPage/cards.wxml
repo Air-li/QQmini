@@ -1,0 +1,29 @@
+<view style="height:150rpx;width:100%" />
+<view class="portfolio" style="height:100rpx;width：100%">
+  <text catch:tap="gotoFavor">点我去收藏夹-></text>
+</view>
+<view class="wrapper">
+  <view class="cards">
+    <view style="background:{{item.bg}}" wx:key="index" wx:for="{{cardList}}" class="card {{item.class}}">
+      <image class="foodImg" src="{{item.src}}" />
+      <view class="cardText">
+        <view class="left">
+          <view class="locate">{{item.locate}}</view>
+          <view class="name">{{item.name}}</view>
+          <view class="restaurant">{{item.restaurant}}</view>
+          <navigator url="/pages/views/remark?orientation=card{{item.obj_id}}:{{item.name}}">
+            <view class="toReview">评论 →</view>
+          </navigator>
+        </view>
+        <view class="right">
+          <text>{{item.description}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 选择按钮 -->
+<view class="btn-group">
+  <image mode="widthFix" bindtap="addToFavor" class="btn" src="/icon/true.svg" />
+  <image mode="widthFix" class="btn" bindtap="removeCard" src="/icon/false.svg" />
+</view>

@@ -1,0 +1,5 @@
+/* pages/test/food.wxss */
+.btnGroup {
+  display: flex;
+  justify-content: center;
+}
