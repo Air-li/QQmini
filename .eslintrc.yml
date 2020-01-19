@@ -1,7 +1,6 @@
 root: true
 
 env:
-  node: true
   es6: true
 
 globals:
@@ -22,14 +21,10 @@ parserOptions:
 
 extends:
   - eslint:all
-  - plugin:@typescript-eslint/eslint-recommended
-  - plugin:@typescript-eslint/recommended
   - plugin:prettier/recommended
-  - prettier/@typescript-eslint
 
 plugins:
   - prettier
-  - "@typescript-eslint"
 
 rules:
   no-useless-constructor:
@@ -68,7 +63,6 @@ rules:
         - j
         - x
         - y
-        - T
 
   implicit-arrow-linebreak:
     - off
@@ -182,5 +176,27 @@ rules:
   strict:
     - off
 
-  "@typescript-eslint/explicit-function-return-type": off
-  "@typescript-eslint/no-explicit-any": off
+overrides:
+  - files:
+      - "*.js"
+
+    env:
+      node: true
+
+  - files:
+      - "*.ts"
+
+    extends:
+      - plugin:@typescript-eslint/eslint-recommended
+      - plugin:@typescript-eslint/recommended
+      - prettier/@typescript-eslint
+
+    plugins:
+      - "@typescript-eslint"
+
+    rules:
+      "@typescript-eslint/explicit-function-return-type":
+        - warn
+        - allowTypedFunctionExpressions: true
+
+      "@typescript-eslint/no-explicit-any": off

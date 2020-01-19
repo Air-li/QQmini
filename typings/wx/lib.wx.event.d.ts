@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 /**
  * 事件对象类型
  */
@@ -16,7 +18,7 @@ declare namespace WXEvent {
   }
 
   /**
-   * base事件参数
+   * Base事件参数
    */
   interface Base {
     /**
@@ -40,7 +42,8 @@ declare namespace WXEvent {
   /**
    * 自定义事件
    */
-  interface Custom<P extends Record<string, any> = Record<string, any>> extends Base {
+  interface Custom<P extends Record<string, any> = Record<string, any>>
+    extends Base {
     /**
      * 额外的信息
      */
@@ -79,7 +82,7 @@ declare namespace WXEvent {
   interface Touch<
     P extends Record<string, any> = Record<string, any>,
     T extends TouchDetail | TouchCanvasDetail = TouchDetail
-    > extends Custom<P> {
+  > extends Custom<P> {
     /**
      * 触摸事件，当前停留在屏幕中的触摸点信息的数组
      */
@@ -91,7 +94,7 @@ declare namespace WXEvent {
   }
 
   /**
-   * canvas Touch 对象
+   * Canvas Touch 对象
    */
   interface TouchCanvasDetail {
     /**
@@ -109,7 +112,7 @@ declare namespace WXEvent {
   }
 
   /**
-   * canvas触摸事件响应
+   * Canvas触摸事件响应
    */
   interface TouchCanvas extends Touch<never, TouchCanvasDetail> {
     /**
@@ -197,7 +200,7 @@ declare namespace WXEvent {
   }>;
 
   /**
-   * current 改变时会触发 change 事件，event.detail = {current, source}
+   * Current 改变时会触发 change 事件，event.detail = {current, source}
    *
    * `tip`: 如果在 bindchange 的事件回调函数中使用 setData 改变 current 值，则有可能导致 setData 被不停地调用，因而通常情况下请在改变 current 值前检测 source 字段来判断是否是由于用户触摸引起。
    */
@@ -218,7 +221,7 @@ declare namespace WXEvent {
   }>;
 
   /**
-   * swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy}
+   * Swiper-item 的位置发生改变时会触发 transition 事件，event.detail = {dx: dx, dy: dy}
    *
    * 最低基础库: 2.4.3
    */
@@ -248,7 +251,10 @@ declare namespace WXEvent {
    *
    * 最低基础库: 1.3.0
    */
-  type ButtonGetUserInfo = Custom<WechatMiniprogram.GeneralCallbackResult & WechatMiniprogram.GetUserInfoSuccessCallbackResult>;
+  type ButtonGetUserInfo = Custom<
+    WechatMiniprogram.GeneralCallbackResult &
+      WechatMiniprogram.GetUserInfoSuccessCallbackResult
+  >;
 
   /**
    * 客服消息回调，open-type="contact"时有效
@@ -262,8 +268,10 @@ declare namespace WXEvent {
    *
    * 最低基础库: 1.2.0
    */
-  type ButtonGetPhoneNumber =
-    Custom<WechatMiniprogram.GeneralCallbackResult & Partial<WechatMiniprogram.GetWeRunDataSuccessCallbackResult>>;
+  type ButtonGetPhoneNumber = Custom<
+    WechatMiniprogram.GeneralCallbackResult &
+      Partial<WechatMiniprogram.GetWeRunDataSuccessCallbackResult>
+  >;
 
   /**
    * 当使用开放能力时，发生错误的回调，open-type=launchApp时有效
@@ -277,7 +285,10 @@ declare namespace WXEvent {
    *
    * 最低基础库: 2.0.7
    */
-  type ButtonOpenSetting = Custom<WechatMiniprogram.GeneralCallbackResult & WechatMiniprogram.OpenSettingSuccessCallbackResult>;
+  type ButtonOpenSetting = Custom<
+    WechatMiniprogram.GeneralCallbackResult &
+      WechatMiniprogram.OpenSettingSuccessCallbackResult
+  >;
 
   /**
    * 打开 APP 成功的回调，open-type=launchApp时有效
@@ -287,7 +298,7 @@ declare namespace WXEvent {
   type ButtonLaunchApp = Custom<WechatMiniprogram.GeneralCallbackResult>;
 
   /**
-   * checkbox-group 中选中项发生改变时触发 change 事件，detail = {value:['选中的checkbox的value的数组']}
+   * Checkbox-group 中选中项发生改变时触发 change 事件，detail = {value:['选中的checkbox的value的数组']}
    */
   type CheckboxGroupChange = Custom<{
     /** 选中的checkbox的value的数组 */
@@ -379,7 +390,7 @@ declare namespace WXEvent {
     value: string;
     /** 光标位置 */
     cursor: number;
-    /** keyCode 为键值 (目前工具还不支持返回keyCode参数) `2.1.0` 起支持 */
+    /** KeyCode 为键值 (目前工具还不支持返回keyCode参数) `2.1.0` 起支持 */
     keyCode?: number;
   }>;
 
@@ -430,7 +441,7 @@ declare namespace WXEvent {
   type PickerCancel = Custom<{}>;
 
   /**
-   * value 改变时触发 change 事件，event.detail = {value}
+   * Value 改变时触发 change 事件，event.detail = {value}
    *
    * 当 mode = region 时 (最低基础库: 1.4.0)
    *
@@ -466,7 +477,7 @@ declare namespace WXEvent {
    * 滚动选择时触发change事件，event.detail = {value}
    */
   type PickerViewChange = Custom<{
-    /** value为数组，表示 picker-view 内的 picker-view-column 当前选择的是第几项（下标从 0 开始） */
+    /** Value为数组，表示 picker-view 内的 picker-view-column 当前选择的是第几项（下标从 0 开始） */
     value: number[];
   }>;
 
@@ -485,7 +496,7 @@ declare namespace WXEvent {
   type PickerViewPickEnd = Custom<{}>;
 
   /**
-   * radio-group 中选中项的 value
+   * Radio-group 中选中项的 value
    */
   type RadioGroupChange = Custom<{
     value: string;
@@ -495,7 +506,7 @@ declare namespace WXEvent {
    * 完成一次拖动后触发的事件，event.detail = {value}
    */
   type SliderChange = Custom<{
-    /** slider 的数值 0-100 */
+    /** Slider 的数值 0-100 */
     value: number;
   }>;
 
@@ -507,7 +518,7 @@ declare namespace WXEvent {
   type SliderChanging = SliderChange;
 
   /**
-   * checked 改变时触发 change 事件，event.detail={ value}
+   * Checked 改变时触发 change 事件，event.detail={ value}
    */
   type SwitchChange = Custom<{
     value: boolean;
@@ -607,6 +618,7 @@ declare namespace WXEvent {
      * - 3 解码错误
      * - 4 不合适资源
      */
+    // eslint-disable-next-line no-magic-numbers
     errMsg: 1 | 2 | 3 | 4;
   }>;
 
@@ -732,14 +744,14 @@ declare namespace WXEvent {
      * - `videoHeight` 视频画面的高度
      */
     info:
-    | 'videoBitrate'
-    | 'audioBitrate'
-    | 'videoFPS'
-    | 'videoGOP'
-    | 'netSpeed'
-    | 'netJitter'
-    | 'videoWidth'
-    | 'videoHeight';
+      | 'videoBitrate'
+      | 'audioBitrate'
+      | 'videoFPS'
+      | 'videoGOP'
+      | 'netSpeed'
+      | 'netJitter'
+      | 'videoWidth'
+      | 'videoHeight';
   }>;
 
   /**
@@ -805,14 +817,14 @@ declare namespace WXEvent {
      * -`videoHeight` 视频画面的高度
      */
     info:
-    | 'videoBitrate'
-    | 'audioBitrate'
-    | 'videoFPS'
-    | 'videoGOP'
-    | 'netSpeed'
-    | 'netJitter'
-    | 'videoWidth'
-    | 'videoHeight';
+      | 'videoBitrate'
+      | 'audioBitrate'
+      | 'videoFPS'
+      | 'videoGOP'
+      | 'netSpeed'
+      | 'netJitter'
+      | 'videoWidth'
+      | 'videoHeight';
   }>;
 
   /**

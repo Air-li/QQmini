@@ -1,0 +1,16 @@
+language: node_js
+os: linux
+node_js:
+  - lts/*
+install:
+  - yarn install
+jobs:
+  include:
+    # 测试代码格式
+    - stage: linter-test
+      name: "Use eslint to test your code"
+      script:
+        - yarn run lint:check
+
+stages:
+  - name: linter-test
