@@ -1,0 +1,298 @@
+.topIcon{
+  width:50rpx;
+  height:50rpx;
+  margin-right: 5%;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.selected {
+  background: #68be8d !important;
+}
+
+.placeholder {
+  display: flex;
+  justify-content: start;
+  margin-top: -5rpx;
+  margin-left: 5%;
+  width:80%;
+}
+
+.placeholder .box text {
+  color: grey;
+  font-size: 24rpx;
+}
+
+.placeholder .box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  border: 2rpx solid grey;
+  padding: 5rpx 20rpx;
+  border-radius: 10rpx;
+}
+
+#searchImg {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+#dice image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+#choiceArea {
+  width: 375rpx;
+}
+
+.basicSet .item {
+  background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+}
+
+.tastySet .item {
+  background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%)
+}
+
+.right {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.right .foodlist {
+  width: 48%;
+  text-align: center;
+}
+
+.right .foodlist .item {
+  padding: 8rpx 0;
+  text-align: center;
+  margin:20rpx 0;
+  border: 3rpx solid white;
+  border-radius: 15rpx;
+}
+
+.random .right {
+  width: 375rpx;
+  padding: 6% 0;
+}
+
+#dice {
+  top: 130rpx;
+  position: relative;
+  left: 60rpx;
+}
+
+.dice {
+  position: relative;
+  left: 30rpx;
+  top: 30rpx;
+}
+
+#tip {
+  position: absolute;
+  font-size: 45rpx;
+  padding: 30rpx 30rpx;
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center;
+  background: linear-gradient(#c75a4d, #c75a4d) left top,
+                linear-gradient(#c75a4d, #c75a4d) left top,
+                linear-gradient(#c75a4d, #c75a4d) right top,
+                linear-gradient(#c75a4d, #c75a4d) right top,
+                linear-gradient(#c75a4d, #c75a4d) left bottom,
+                linear-gradient(#c75a4d, #c75a4d) left bottom,
+                linear-gradient(#c75a4d, #c75a4d) right bottom,
+                linear-gradient(#c75a4d, #c75a4d) right bottom;
+  background-repeat: no-repeat;
+  background-size: 1px 24px, 24px 1px;
+}
+
+#click {
+  font-size: 32rpx;
+}
+
+.tipbox {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.tipbox {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+#points {
+  position: absolute;
+  top: 270rpx;
+  width: 250rpx;
+  text-align: center;
+}
+
+/* fangjiaxin */
+
+.place {
+  display: inline-block;
+  background-color: white;
+  color: rgb(248, 114, 97);
+  height: 20px;
+  width: 150px;
+  text-align: center;
+  border-right: rgb(251, 86, 85) 1px solid;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.hover1 {
+  color: rgb(251, 86, 85);
+  background-color: rgb(253, 219, 219);
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.flex {
+  white-space: nowrap;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flex .food {
+  margin: 35rpx 0;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+}
+
+.food {
+  width: 47px;
+  height: 40px;
+  text-align: center;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.random {
+  margin-top: 20px;
+  height: 300px;
+  background-color: rgb(250, 237, 237);
+  display: flex;
+}
+
+.kk {
+  height: 150px;
+  width: 150px;
+  margin-top: 100px;
+}
+
+.btn {
+  width: 100px;
+  height: 35px;
+  font-size: 15px;
+  background-color: rgb(251, 86, 85);
+  color: white;
+}
+
+.button {
+  margin-left: auto;
+  margin-right: 0px;
+}
+
+.hover {
+  background-color: rgb(253, 54, 54);
+}
+
+/*.card{
+    width: 500px;
+    height: 120px;
+    background-color: coral;
+    
+}*/
+
+.random {
+  margin-bottom: 20px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: rgb(167, 202, 216);
+  color: white;
+  height: 25px;
+  width: 120px;
+  text-align: center;
+  border: rgb(198, 214, 233) 1px solid;
+  margin-top: 10px;
+}
+
+.tag2 {
+  margin-left: 30rpx;
+}
+
+.tag1 {
+  padding-bottom: 30rpx;
+}
+
+.atag {
+  display: inline-block;
+  background-color: rgb(244, 146, 85);
+  color: white;
+  height: 20px;
+  width: 70px;
+  text-align: center;
+  margin: 10px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.btag {
+  display: inline-block;
+  background-color: rgb(248, 179, 58);
+  color: white;
+  height: 20px;
+  width: 70px;
+  text-align: center;
+  margin: 10px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+.ctag {
+  display: inline-block;
+  background-color: rgb(255, 160, 177);
+  color: white;
+  height: 20px;
+  width: 70px;
+  text-align: center;
+  margin: 10px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+
+#model{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width:100vw;
+  height: 300px;
+  background: rgba(0,0,0,0.5);
+  color:white;
+  z-index: 10
+}
+#model .item{
+  text-align: center
+}
+#model .modelImg{
+  width:40vw;
+}
